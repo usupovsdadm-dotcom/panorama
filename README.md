@@ -12,4 +12,4 @@
 - assets/img/s-polish-*  — Mixkit #47830 «Close-up of a technician applying polish to a car»
 - assets/img/s-under-*   — Mixkit #13260 «Mechanic working in the bottom of a car»
 - assets/video/engine.mp4, assets/img/engine-poster.* — Mixkit #65
-Шрифты: Oswald, Onest, JetBrains Mono (SIL Open Font License).
+Шрифты: Oswald, Onest, JetBrains Mono (SIL Open Font License), подмножество символов сайта.

@@ -377,4 +377,7 @@ select,.in-t{height:48px;border-radius:12px;border:1px solid var(--line);backgro
 .more{display:none;margin-top:14px}
 @media (max-width:600px){.cloud li{font-size:13px;padding:7px 11px}.cloud.clip li:nth-child(n+17){display:none}.cloud.clip+.more,.more.show{display:inline-flex}}
 
-#about,#services,.brands,#booking,#reviews,#contacts,.ft{content-visibility:auto;contain-intrinsic-size:auto 1200px}
+#about,#services,.brands,#booking,#reviews,#contacts,.ft,.cine,.mqw.cv{content-visibility:auto;contain-intrinsic-size:auto 1200px}
+.cine{contain-intrinsic-size:auto 700px}.mqw.cv{contain-intrinsic-size:auto 120px}
+.mnav:not(.ready){display:none}
+.lb:not(.ready){display:none}

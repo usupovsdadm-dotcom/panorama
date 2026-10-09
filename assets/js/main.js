@@ -21,7 +21,7 @@ function onScroll(){const y=w.scrollY,H=d.documentElement.scrollHeight-innerHeig
  pano();drift();par();tick=false;}
 w.addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
 /* --- menu --- */
-const bg=$('.burger');bg.addEventListener('click',()=>{const o=d.body.classList.toggle('menu-open');bg.setAttribute('aria-expanded',o)});
+const bg=$('.burger'),mn=$('#mnav');bg.addEventListener('click',()=>{if(!mn.classList.contains('ready')){mn.classList.add('ready');mn.offsetWidth}const o=d.body.classList.toggle('menu-open');bg.setAttribute('aria-expanded',o)});
 $$('.mnav a').forEach(a=>a.addEventListener('click',()=>{d.body.classList.remove('menu-open');bg.setAttribute('aria-expanded','false')}));
 /* --- reveal --- */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.dataset.count!==undefined||$('[data-count]',e.target))count(e.target)}}),{rootMargin:'0px 0px -10% 0px',threshold:.12});
@@ -48,7 +48,7 @@ let carOn=false;w.addEventListener('resize',()=>{pSetup();if(carOn)carSet()});
 /* --- lightbox --- */
 const lb=$('.js-lb'),li=$('img',lb),lc=$('.lb-c',lb),G=w.GAL||[];let gi=0,lastF;
 function lbShow(i){gi=(i+G.length)%G.length;li.src=G[gi].s;li.alt=G[gi].a;lc.textContent=`${String(gi+1).padStart(2,'0')} / ${String(G.length).padStart(2,'0')} · ${G[gi].c}`}
-function lbOpen(i){lastF=d.activeElement;lbShow(i);lb.classList.add('open');$('.lb-x',lb).focus();d.body.style.overflow='hidden'}
+function lbOpen(i){lastF=d.activeElement;lbShow(i);lb.classList.add('ready');lb.offsetWidth;lb.classList.add('open');$('.lb-x',lb).focus();d.body.style.overflow='hidden'}
 function lbClose(){lb.classList.remove('open');d.body.style.overflow='';lastF&&lastF.focus()}
 shots.forEach(s=>{s.addEventListener('click',()=>lbOpen(+s.dataset.i));s.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();lbOpen(+s.dataset.i)}})});
 $('.lb-x',lb).onclick=lbClose;$('.lb-p',lb).onclick=()=>lbShow(gi-1);$('.lb-n',lb).onclick=()=>lbShow(gi+1);
